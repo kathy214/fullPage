@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>360</title>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.fullPage.min.js"></script>
+    <link rel="stylesheet" href="index.css"/>
+</head>
+<body>
+<div id="dowebok">
+    <!--第一屏-->
+    <div class="section first">
+        <div class="logo"><img src="images/logo.png" alt=""/></div>
+        <div class="text">
+            <img src="images/text_1.png" alt=""/>
+            <img src="images/text_2.png" alt=""/>
+            <img src="images/text_3.png" alt=""/>
+            <img src="images/text_4.png" alt=""/>
+            <img src="images/text_5.png" alt=""/>
+            <img src="images/text_6.png" alt=""/>
+            <img src="images/text_7.png" alt=""/>
+            <img src="images/text_8.png" alt=""/>
+        </div>
+        <div class="info">
+            <img src="images/info_1.png" alt=""/>
+        </div>
+    </div>
+    <!--第二屏-->
+    <div class="section second">
+        <!--盾牌-->
+        <div class="shield">
+            <img src="images/shield_1.png" alt=""/>
+            <img src="images/shield_2.png" alt=""/>
+            <img src="images/shield_3.png" alt=""/>
+            <img src="images/shield_4.png" alt=""/>
+            <img src="images/shield_5.png" alt=""/>
+            <img src="images/shield_6.png" alt=""/>
+            <img src="images/shield_7.png" alt=""/>
+            <img src="images/shield_8.png" alt=""/>
+            <img src="images/shield_9.png" alt=""/>
+        </div>
+        <!--右边文字-->
+        <div class="info"></div>
+    </div>
+    <!--第三屏-->
+    <div class="section third">
+        <!--左边文字信息-->
+        <div class="info"></div>
+        <!--右边圆圈-->
+        <div class="circle"></div>
+        <!--小火箭-->
+        <div class="rocket"></div>
+    </div>
+    <!--第四屏-->
+    <div class="section fourth">
+        <!--左边搜索框-->
+        <div class="box">
+            <div class="search"></div>
+            <div class="key"></div>
+            <div class="wrap">
+                <div class="result"></div>
+            </div>
+
+        </div>
+        <!--右边文字-->
+        <div class="info"></div>
+    </div>
+    <!--第五屏-->
+    <div class="section five">
+        <!--上面文字-->
+        <div class="info"></div>
+        <div class="box">
+            <div class="top-line"></div>
+            <div class="left-line"></div>
+            <div class="right-line"></div>
+            <div class="toolbar"></div>
+            <div class="toolbar-lines"></div>
+            <div class="extra"></div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    $(function () {
+        $('#dowebok').fullpage({
+            /*设置每一屏的背景颜色*/
+            sectionsColor: ["palevioletred", "skyblue", "#dea520", "lightgreen", "mediumpurple"],
+            /*设置滚动到某一屏后的回调函数*/
+            afterLoad: function (link, index) {
+                $(".section").removeClass("current");
+                /*解决页面首屏加载时 看不到动画效果*/
+                setTimeout(function () {
+                    /*当屏幕滚到当前一屏时，添加类名，便于识别*/
+                    $(".section").eq(index - 1).addClass("current");
+                }, 100)
+
+
+            }
+        });
+
+    });
+</script>
+</html>

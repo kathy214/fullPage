@@ -1,0 +1,283 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/*第一屏*/
+.section{
+    overflow: hidden;
+}
+.first{
+    padding-top: 70px;
+}
+.first .logo{
+    text-align: center;
+}
+.first .text{
+    text-align: center;
+    margin: 100px 0 60px;
+}
+.first .text img{
+    opacity: 0;
+    margin:0 20px;
+}
+/*.first .text img:nth-child(-n+4){
+    transform: translate(-800px);
+}
+.first .text img:nth-last-child(-n+4){
+    transform: translate(800px);
+}*/
+.first .info{
+    text-align: center;
+}
+/*第一屏动画*/
+.current.first .text img{
+    opacity: 1;
+    /*改变margin值，让它们每个字同时有一种向里缩的感觉*/
+    margin:0 10px;
+    /*左右两边4个一组同时向里来*/
+   /* transform: translate(0);*/
+    transition: all 0.5s;
+}
+
+/*第二屏*/
+.second>div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.second .info{
+    width: 635px;
+    height: 309px;
+    background: url("images/info_2.png") no-repeat center;
+}
+.shield{
+    width: 428px;
+    height: 498px;
+}
+/*打乱图片顺序*/
+.shield img:nth-child(1){
+    transform: translate(300px,500px) rotate(30deg);
+}
+.shield img:nth-child(2){
+    transform: translate(300px,-100px) rotate(60deg);
+}
+.shield img:nth-child(3){
+    transform: translate(100px,200px) rotate(90deg);
+}
+.shield img:nth-child(4){
+    transform: translate(-50px) rotate(-30deg);
+}
+.shield img:nth-child(5){
+    transform: translate(520px,-100px) rotate(-60deg);
+}
+.shield img:nth-child(6){
+    transform: translate(670px,50px) rotate(-230deg);
+}
+.shield img:nth-child(7){
+    transform: translate(-50px,50px) rotate(-130deg);
+}
+.shield img:nth-child(8){
+    transform: translate(-400px,27px) rotate(-310deg);
+}
+.shield img:nth-child(9){
+    transform: translate(-50px,20px) rotate(-45deg);
+}
+/*第二屏动画*/
+.current .shield img{
+    transform: none;
+    transition: transform 1s;
+}
+
+/*第三屏开始*/
+.third{
+    position: relative;
+    overflow: hidden;
+}
+.third>div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.third .info{
+    width: 631px;
+    height: 278px;
+    background: url(images/info_3.png) no-repeat;
+}
+.third .circle{
+    width: 453px;
+    height: 449px;
+    background:  url(images/circle.png)  no-repeat;
+    animation: rot 5s linear infinite;
+}
+.third .rocket{
+    width: 203px;
+    height: 204px;
+    background:  url(images/rocket.png) no-repeat;
+    position: absolute;
+    left: 500px;
+    bottom: -400px;
+
+}
+/*第三屏动画*/
+.current.third .rocket{
+    transition: transform 1s;
+    transform: translate(550px,-700px);
+}
+@keyframes rot {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+/*第四屏开始*/
+.fourth>div{
+   display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.fourth .box{
+    position: relative;
+    margin-top: -240px;
+}
+.fourth .box .search{
+    width: 530px;
+    height: 66px;
+    background:  url(images/search.png) 0 0 no-repeat;
+    transform: translate(-600px);
+}
+.fourth .info{
+    width: 612px;
+    height: 299px;
+    background:  url(images/info_4.png) 0 0 no-repeat;
+}
+ .box .key{
+    /*width: 99px;*/
+     /*如果要让文字，一个一个的出来，通过改变宽度来实现，不能用translate来实现，translate只能整体运动*/
+    width: 0px;
+    height: 22px;
+    background:  url(images/key.png) 0 0 no-repeat;
+    position: absolute;
+    top: 25px;
+    left: 20px;
+}
+ /*wrap 占位置，让图片隐藏*/
+.wrap{
+    width: 529px;
+    height: 372px;
+    position: absolute;
+    top: 53px;
+    left: 0px;
+    /*超出部分隐藏，当图片移出去时，站住位置*/
+    overflow: hidden;
+}
+ .wrap .result{
+    width: 100%;
+    height: 100%;
+    background:  url(images/result.png) 0 0 no-repeat;
+    transform: translateY(-100%);
+}
+ /*第四屏动画*/
+.current.fourth .search{
+    transform:translate(0px);
+    transition: transform 1s;
+}
+.current.fourth .box .key{
+    width: 99px;
+    transition: width 2s 1s steps(5);
+}
+.current.fourth .wrap .result{
+    transform:none;
+    transition: transform 1s 4s;
+}
+
+/*第五屏开始*/
+.five>div{
+    display: flex;
+    flex-direction: column;
+}
+.five .info{
+    width: 100%;
+    height: 134px;
+    background:  url(images/info_5.png) center  no-repeat;
+    margin-top: 50px;
+}
+.five .box{
+    flex: 1;
+    background-color: mediumorchid;
+    margin: 0 auto;
+    margin-top: 30px;
+    position: relative;
+    border-bottom: 1px solid #ccc;
+}
+.five .box::after{
+    content: "";
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    position: absolute;
+    bottom: 30px;
+}
+.five .box .top-line,.left-line,.right-line{
+    height: 100%;
+    width:100%;
+    border-top: 1px solid #ccc;
+    position: absolute;
+    transform: translate(1600px);
+}
+.five .box .left-line{
+    border-top: none;
+    border-left: 1px solid #ccc;
+    transform: translate(0,-1600px);
+}
+.five .box .right-line{
+    border-top: none;
+    border-right: 1px solid #ccc;
+    transform: translate(0,1600px);
+}
+
+.five .toolbar{
+    width: 1004px;
+    height: 79px;
+    background:  url(images/toolbar.png) 0 0 no-repeat;
+    opacity: 0;
+}
+.five .box .toolbar-lines{
+    width: 920px;
+    height: 25px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    position: absolute;
+    top: 31px;
+    left: 70px;
+    transform: translate(-1200px);
+}
+.five .extra{
+    width: 100%;
+    height: 29px;
+    background:  url(images/extra.png) right 0 no-repeat;
+    position: absolute;
+    bottom: 0;
+    opacity: 0;
+}
+/*第五屏动画*/
+.current.five .box .toolbar-lines{
+    transform: none;
+    transition: transform 1s 1s;
+}
+.current.five .toolbar{
+    opacity: 1;
+    transition: opacity 1.5s 2s;
+}
+.current.five .extra{
+    opacity: 1;
+    transition: opacity 1s 3s;
+}
+
+.current.five .top-line,
+.current.five .left-line,
+.current.five .right-line{
+    transform: none;
+    transition: transform 1s;
+}
